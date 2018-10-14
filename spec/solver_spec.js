@@ -1,4 +1,3 @@
-require_relative '../solver'
 
 describe "Solver" do
   describe 'read_maze' do
