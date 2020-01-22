@@ -1,4 +1,5 @@
-solver = require('../solver.js')
+solver = require('../solver.js'); 
+const readMaze = require('../solver');
 
 describe("Solver", () => {
   describe('read_maze', () => {
@@ -8,6 +9,6 @@ describe("Solver", () => {
                     ['#','.','*'],
                     ['#','#','#']]
       expect(maze).toEqual(mazeArray)
-    }
-  }
-}
+    })
+  })
+})

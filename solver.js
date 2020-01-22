@@ -4,3 +4,6 @@
 function readMaze(file) {
 
 }
+
+
+module.exports = readMaze;
