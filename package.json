@@ -4,7 +4,7 @@
   "description": "> \"Таким образом, герой встретил Минотавра в мрачных глубинах Лабиринта и не был напуган\". -Тесей и Минотавр",
   "main": "solver.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest -i"
   },
   "repository": {
     "type": "git",
