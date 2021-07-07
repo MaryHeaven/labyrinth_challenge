@@ -1,20 +1,20 @@
-# Лабиринт
+# Labyrinth
 
-> "Таким образом, герой встретил Минотавра в мрачных глубинах Лабиринта и не был напуган". -Тесей и Минотавр
+> Thus, the hero met the Minotaur in the dark depths of the Labyrinth and was not frightened." -Theseus and the Minotaur
 
-В этой задаче вам нужно будет создать программу, которая определяет, разрешим ли лабиринт или нет. Шаг за шагом, и Вы создадите программу, чтобы:
+In this challenge, you will need to create a program that determines whether the labyrinth is solvable or not. Step by step you will create a program to:
 
-  * Читать файл, содержащий Лабиринт
-  * Представлять лабиринт в коде
-  * Использовать стратегию, чтобы определить, разрешим ли Лабиринт
+   * Read the file containing the Labyrinth
+   * Represent the Labyrinth in code
+   * Use strategy to determine if the Labyrinth is resolvable
 
-**Требуются тесты**. Эта задача может легко завести в тупик, если вы не будете тщательно тестировать даже самые основные методы. Например, простая ошибка, подобная смешению x и y, может иметь некоторые запутанные и неочевидные последствия. Если Вы не знаете, как проверить что-то, обратитесь за помощью.   
-Для установки зависимостей проекта - ```npm install```   
-Для запуска тестов - ```npm test```
+**Tests required**. This exercise can be quite overwhelming if you don't thoroughly test even the most basic methods. For example, a simple mistake like mixing x and y can have some confusing and non-obvious consequences. If you don't know how to test something, get help.
+To install project dependencies - `` npm install``
+To run tests - `` npm test``
 
-## Чтение лабиринта
+## Reading the labyrinth
 
-Ваш лабиринт будет определен в текстовом файле, который выглядит так:
+Your labyrinth will be defined in a text file that looks like this:
 
 ```
 o#........
@@ -23,56 +23,53 @@ o#........
 ######.#*.
 .......###
 ```
- * `#` означает стену
- * `.` означает открытое пространство
- * `o` означает место старта
- * `*` означает Вашу конечную цель
+ * `#` means wall
+ * `.` means open space
+ * `o` means starting place
+ * `*` means your ultimate goal
 
 
-Вам предоставлен метод, называемый `readMaze`. Он берет файл и возвращает двумерный массив, представляющий лабиринт. См. пример в файле спецификации.
+You are provided with a method called `readMaze`. It takes a file and returns a two-dimensional array representing the labyrinth. See the example in the spec file.
 
-## Release 1. Упрощенные задачи
+## Release 1. Simplified tasks
 
-Ваша задача - написать **рекурсивный** алгоритм, который определяет, проходим ли лабиринт. Ваш метод `isSolvable()` должен выдавать`true`, если финиш (`*`) достигаем из начала (`o`). Он должен выдавать `false`, если невозможно достичь конца (нет пути). Вам не нужно возвращать путь.
+Your task is to write a **recursive** algorithm that determines whether you can pass the labyrinth. Your `isSolvable ()` method should return `true` if the finish (`*`) is reached from the beginning (`o`). It should return `false` if the end cannot be reached (no path). You don't need to return the path.
 
-Прежде чем начать, поработайте с вашей парой, чтобы подумать о том, на какие вопросы вам нужно ответить. Вот несколько возможный вопросов:
+Before you start, work with your partner to think about what questions you need to answer. Here are some possible questions:
 
- * Где начальная позиция?
- * Открыта ли конкретная позиция (x, y)? Это стена? Это цель?
- * Если я смотрю на определенную позицию, то что ее окружает?
- * Как я могу узнать, какие клетки вокруг определенной позиции - открытое пространство?
+ * Where is the starting position?
+ * Is a specific position (x, y) open? Is it a wall? Is this the goal?
+ * If I look at a certain position, what surrounds it?
+ * How can I know which cells around a certain position are open space?
 
-Для каждого метода, который вы пишете, напишите тест.
+For each method you write, write a test.
 
-Мы будем использовать методы, которые мы пишем в этом релизе, в следующей задаче.
+We will use the methods we write in this release in the next task.
 
-## Release 2. Исследование лабиринта
+## Release 2. Exploring the labyrinth
 
-Теперь, когда мы написали методы, мы можем их использовать, чтобы написать наш рекурсивный алгоритм.
+Now that we have written the methods, we can use them to write our recursive algorithm.
 
-Напомним, вот наша задача:
+As a reminder, here's our task:
 
-> Задача - написать рекурсивный алгоритм, определяющий, можно ли пройти лабиринт или нет. Ваш метод `isSolvable`, Он должен выдавать` true`, если финиш (`*`) достижим из начальной позиции (`o`). Он должен выдавать `false`, если невозможно достичь конца (нет пути). Вам не нужно возвращать путь.
+> The task is to write a recursive algorithm that determines whether the maze can be traversed or not. Your method is `isSolvable`, It should return` true` if the finish (`*`) is reachable from the starting position (`o`). It should return `false` if the end cannot be reached (no path). You don't need to return the path.
 
+Hint: your recursive algorithm will have to explore the cells until it finds a finish, or determines that the finish is unattainable.
+Make sure you are testing different types of labyrinths (problems). Some examples are contained in this repository.
 
-Подсказка: ваш рекурсивный алгоритм должен будет исследовать ячейки до тех пор, пока не найдет финиш, или не определит, что финиш недостижим.
-Убедитесь, что вы тестируете лабиринты(задачи) разных типов. Некоторые примеры содержатся в этом репозитории.
+## Stretch 1. Iterative approach
 
-## Stretch 1. Итеративный
-
-Придумайте итеративное решение, сравните его с вашим рекурсивным решением.
+Come up with an iterative solution and compare it to the recursive solution.
 
 ![](assets/dfs.gif)
 
 
 ![](assets/bfs.gif)
 
-Можете ли вы создать итеративные решения, имитирующие оба способа решения?
+Can you create iterative solutiomns that mimic two approaches?
+## Stretch 2 More challenging mazes and open terrain
 
-## Stretch 2 Более сложные лабиринты и открытая местность
-
-Запустите свою программу, подавая на вход более сложные лабиринты. 
-
+Start your program with more challenging labyrinths as input.
 ```
 ...#.....#
 ...#.#.#.#
